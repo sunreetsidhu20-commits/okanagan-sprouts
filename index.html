@@ -478,6 +478,30 @@
   .foot-col a:hover{color:#fff;}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;font-size:13px;color:#AEBE9E;text-align:center;}
 
+    /* ===== CAREERS ===== */
+  .careers-box{
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    padding:40px;
+    max-width:680px;
+    margin:0 auto;
+    box-shadow:var(--shadow);
+  }
+  .careers-box .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+  .careers-box label{font-weight:700;font-size:13.5px;color:var(--green-deep);}
+  .careers-box input, .careers-box select, .careers-box textarea{
+    font-family:'Nunito',sans-serif;font-size:15px;
+    padding:12px 14px;border-radius:12px;
+    border:1.6px solid #E4DCC8;background:var(--cream);color:var(--ink);
+  }
+  .careers-box input:focus, .careers-box select:focus, .careers-box textarea:focus{
+    outline:none;border-color:var(--orange);
+    box-shadow:0 0 0 3px rgba(232,151,58,.18);
+  }
+  .careers-note{
+    font-size:13px;color:var(--ink-soft);
+    margin-top:10px;text-align:center;
+  }
   /* reveal animation */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
@@ -501,6 +525,7 @@
       <li><a href="#programs">Programs</a></li>
       <li><a href="#philosophy">Philosophy</a></li>
       <li><a href="#location">Location</a></li>
+      <li><a href="#careers">Careers</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a class="btn btn-primary nav-call" href="tel:+17787544777">Call (778) 754-4777</a></li>
     </ul>
@@ -694,6 +719,49 @@
     <div class="wrap">
       <div class="section-head reveal">
 
+          <!-- CAREERS -->
+  <section class="section" id="careers">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Join Our Team</span>
+        <h2>Careers at Okanagan Sprouts</h2>
+        <p class="lede">We'd love to hear from passionate early childhood educators. Fill out the form below and email your resume to us directly.</p>
+      </div>
+
+      <div class="careers-box reveal">
+        <form id="careerForm">
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" id="cName" required placeholder="Your full name">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="cEmail" required placeholder="your@email.com">
+          </div>
+          <div class="field">
+            <label>Phone</label>
+            <input type="tel" id="cPhone" placeholder="(250) 000-0000">
+          </div>
+          <div class="field">
+            <label>Position Applying For</label>
+            <select id="cPosition">
+              <option value="">Select a position...</option>
+              <option>Infant/Toddler Educator (ECE)</option>
+              <option>Preschool Educator (ECE)</option>
+              <option>ECE Assistant</option>
+              <option>Other / General Interest</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Tell us a little about yourself</label>
+            <textarea id="cMessage" rows="4" placeholder="Experience, certifications, why you'd like to join us..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Submit Application</button>
+          <p class="careers-note">📎 Please also email your resume to <strong>hello@okanagansprouts.ca</strong> with the subject line "Resume – [Your Name]"</p>
+        </form>
+      </div>
+    </div>
+  </section>
   <!-- LOCATION -->
   <section class="section section-cream2" id="location">
     <div class="wrap">
@@ -862,7 +930,25 @@
   } else {
     reveals.forEach(el => el.classList.add('in'));
   }
-
+  
+  // careers form -> mailto
+  document.getElementById('careerForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('cName').value;
+    const email = document.getElementById('cEmail').value;
+    const phone = document.getElementById('cPhone').value;
+    const position = document.getElementById('cPosition').value;
+    const message = document.getElementById('cMessage').value;
+    const subject = encodeURIComponent('Job Application – ' + name);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Position: ' + position + '\n\n' +
+      message
+    );
+    window.location.href = 'mailto:okanagansprouts@gmail.com?subject=' + subject + '&body=' + body;
+  });
   // contact form -> mailto
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
