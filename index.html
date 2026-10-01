@@ -830,43 +830,105 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="section" id="contact">
-  <div class="wrap">
+<!-- ENROLLMENT -->
+<div style="background:#E7EEDD;border-radius:20px;padding:30px;margin:30px auto 40px;max-width:760px;">
 
-    <div class="section-head reveal">
-      <span class="eyebrow">Enrollment</span>
-      <h2>Ready to join the Sprouts family?</h2>
+  <div style="text-align:center;">
+    <h3 style="font-family:'Fredoka',sans-serif;color:#33492A;font-size:26px;margin:0 0 10px;">
+      🌱 Interested in Enrolling?
+    </h3>
 
-      <p class="lede">
-        Looking for a warm, welcoming place for your child to learn, play, and grow?
-        We'd love to hear from you!
-      </p>
+    <p style="color:#6B6354;font-size:17px;margin:0 0 8px;">
+      Our registration fee is 
+      <strong style="color:#C97B22;">$100</strong>.
+    </p>
+
+    <p style="color:#6B6354;font-size:15px;margin:0 0 25px;">
+      Complete the form below to request an enrollment form.
+    </p>
+  </div>
+
+  <form id="contactForm">
+
+    <!-- Name + Child Age -->
+    <div class="form-row">
+      <div class="field">
+        <label for="parentName">Your Name</label>
+        <input 
+          type="text" 
+          id="parentName" 
+          name="parentName" 
+          placeholder="Your full name"
+          required>
+      </div>
+
+      <div class="field">
+        <label for="childAge">Child's Age</label>
+        <input 
+          type="text" 
+          id="childAge" 
+          name="childAge" 
+          placeholder="e.g. 14 months"
+          required>
+      </div>
     </div>
 
-    <!-- REGISTRATION FEE -->
-    <div style="background:#E7EEDD;border-radius:20px;padding:28px 30px;margin:30px auto 40px;max-width:760px;text-align:center;">
+    <!-- Email + Phone -->
+    <div class="form-row">
+      <div class="field">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="your@email.com"
+          required>
+      </div>
 
-      <h3 style="font-family:'Fredoka',sans-serif;color:#33492A;font-size:24px;margin:0 0 10px;">
-        🌱 Ready to get started?
-      </h3>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          name="phone" 
+          placeholder="(250) 000-0000"
+          required>
+      </div>
+    </div>
 
-      <p style="color:#6B6354;font-size:17px;margin:0 0 8px;">
-        Our registration fee is 
-        <strong style="color:#C97B22;">$100</strong>.
-      </p>
+    <!-- Message -->
+    <div class="form-row">
+      <div class="field full">
+        <label for="message">Message</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          rows="4" 
+          placeholder="Tell us a little about what you're looking for..."
+          required></textarea>
+      </div>
+    </div>
 
-      <p style="color:#6B6354;font-size:15px;margin:0 0 18px;">
-        Contact us to check availability and request an enrollment form.
-      </p>
-
-      <a href="mailto:okanagansprouts@gmail.com?subject=Enrollment Inquiry"
-         class="btn btn-primary">
+    <!-- Submit -->
+    <div style="text-align:center;margin-top:20px;">
+      <button 
+        type="submit" 
+        class="btn btn-primary">
         Request Enrollment Form
-      </a>
+      </button>
 
+      <p style="color:#6B6354;font-size:13px;margin:12px 0 0;">
+        Sending this opens your email app so the message goes straight to us.
+      </p>
     </div>
 
-    <div class="contact-grid">
+    <div class="form-success" id="formSuccess">
+      Thanks! Your email app should now be open with your message ready to send.
+    </div>
+
+  </form>
+
+</div>
 
       <div class="contact-grid">
         <div class="contact-info reveal">
